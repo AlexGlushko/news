@@ -1,30 +1,34 @@
 <?php
 
-
-
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
+/* index */
 Route::get('/', 'ArticleController@index')->name('index');
+
+/* Filtered results page */
 Route::get('/filter', 'ArticleController@filterByCategory')->name('filter');
+
+/* Show article by id */
 Route::get('/article/{article}', 'ArticleController@show' )->name('show');
 
-Route::get('/manager/article', function () {
-    return view('addArticle');
-})->name('add');
+
+
+
+
+/* Route for manager page */
 Route::get('/manager', 'ArticleController@managerDashboard')->name('manager');
 
+/* Add article(form) */
+Route::get('/manager/article', function () {return view('addArticle');})->name('add');
+
+/* Save a new article at DB */
 Route::match(['put', 'patch'],'/manager/article/store', 'ArticleController@storeArticle')->name('article.store');
+
+/* Edit form */
 Route::get('manager/article/{id}/edit', 'ArticleController@edit')->name('article.edit');
+
+/* Save edited article */
 Route::put('manager/article/{id}/update', 'ArticleController@update')->name('article.update');
+
+/* Delete article from DB */
 Route::delete('manager/article/{id}', 'ArticleController@destroy')->name('article.delete');
 
         
