@@ -3,7 +3,9 @@
 @section('content')
 
 <div class="control-btns">
-    <a href="{{route('index')}}" class="btn btn-secondary btn-sm">Go home</a>
+    <a href="{{route(app('router')
+    ->getRoutes()
+    ->match(app('request')->create(url()->previous()))->getName())}}" class="btn btn-secondary btn-sm">Go home</a>
 </div>
 
 @foreach ($article as $item)
