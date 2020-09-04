@@ -5,7 +5,7 @@
     <a href="{{route('add')}}" class="btn btn-success btn-sm">Add new Article</a>
 </div>
 <div class="control-btns">
-    <a href="{{route('index')}}" class="btn btn-secondary btn-sm">Go home</a>
+    <a href="{{route('manager')}}" class="btn btn-secondary btn-sm">Go home</a>
 </div>
 
 
