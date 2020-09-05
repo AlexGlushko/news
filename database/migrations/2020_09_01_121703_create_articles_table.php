@@ -19,7 +19,7 @@ class CreateArticlesTable extends Migration
             $table->mediumText('text');
             $table->string('category');
             $table->timestamp('created_at');
-            $table->timestamp('updated_at')->now();
+            $table->timestamp('updated_at')->nullable();
         });
     }
 
